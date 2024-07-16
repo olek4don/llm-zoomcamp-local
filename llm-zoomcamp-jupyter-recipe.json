@@ -1,0 +1,41 @@
+schema_version: 2024.04.01
+type: workspace
+spec:
+  name: llm-zoomcamp
+  owner: community/olek4don
+  description: ''
+  image: community/saturncloud/saturn-python-llm:2023.09.01
+  instance_type: g4dnxlarge
+  environment_variables: {}
+  working_directory: /home/jovyan/workspace
+  extra_packages:
+    pip:
+      install: '-U transformers accelerate bitsandbytes'
+  start_script: ''
+  git_repositories:
+    - url: git@github.com:olek4don/llm-zoomcamp-local.git
+      path: /home/jovyan/workspace/llm-zoomcamp-local
+      public: false
+      on_restart: preserve changes
+      reference: null
+      reference_type: branch
+  secrets:
+    - location: HG_TOKEN
+      type: environment_variable
+      description: ''
+      owner: community/olek4don
+      name: HG_TOKEN
+  shared_folders: []
+  ide: jupyter
+  disk_space: 2Gi
+  auto_shutoff: 1 hour
+  start_ssh: false
+  use_spot_instance: false
+  routes:
+    - subdomain: w-olek4-llm-zoomcamp-7bf30da94e3146f4b7167622b9f767e9
+      container_port: 8888
+      visibility: owner
+  viewers: []
+state:
+  id: 7bf30da94e3146f4b7167622b9f767e9
+  status: stopped
