@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 .envrc
 .env
+04-monitoring/app/.env
